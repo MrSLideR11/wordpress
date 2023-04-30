@@ -59,24 +59,6 @@
          */
         public ?string $body;
 
-        /**
-         * Стили для письма
-         * 
-         * @var array
-         */
-        private array $styles = [
-            "body" => "margin: 0px 0px 0px 0px; padding: 10px 10px 10px 10px; background: #ffffff; color: #000000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px;",
-            "a" => "color: #000000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; text-decoration: underline;",
-            "p" => "color: #000000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; margin: 0px 0px 10px 0px; padding: 0px 0px 0px 0px;",
-            "h1" => "color: #000000; font-family: Arial, sans-serif; font-size: 24px; line-height: 28px; font-weight: bold; margin: 0px 0px 20px 0px; padding: 0px 0px 0px 0px;",
-            "h2" => "color: #000000; font-family: Arial, sans-serif; font-size: 22px; line-height: 26px; font-weight: bold; margin: 0px 0px 20px 0px; padding: 0px 0px 0px 0px;",
-            "h3" => "color: #000000; font-family: Arial, sans-serif; font-size: 20px; line-height: 24px; font-weight: bold; margin: 0px 0px 20px 0px; padding: 0px 0px 0px 0px;",
-            "h4" => "color: #000000; font-family: Arial, sans-serif; font-size: 18px; line-height: 22px; font-weight: bold; margin: 0px 0px 20px 0px; padding: 0px 0px 0px 0px;",
-            "h5" => "color: #000000; font-family: Arial, sans-serif; font-size: 16px; line-height: 20px; font-weight: bold; margin: 0px 0px 20px 0px; padding: 0px 0px 0px 0px;",
-            "h6" => "color: #000000; font-family: Arial, sans-serif; font-size: 14px; line-height: 18px; font-weight: bold; margin: 0px 0px 20px 0px; padding: 0px 0px 0px 0px;",
-        ];
-
-
         public function __construct() {
             $this->fromEmail = null;
             $this->fromName = null;
@@ -157,51 +139,54 @@
         }
 
         /**
+        * Получает все записи об ошибках
+        *
+        * @return array
+        */
+        public function getErrors():array {
+            return $this->errors;
+        }
+            
+        /**
+        * Добавляет новую запись об ошибке в массив ошибок
+        *
+        * @param string $error Строка, содержащая текст ошибки
+        *
+        * @return void
+        */
+        public function pushError(string $error): void {
+            $this->errors[] = $error;
+        }
+
+        /**
          * Отправляет письмо
          * 
          * @return Bool
          */
-        public function sendMail():string {
-            $result = [
-                'status' => 'error',
-                'errors' => $this->errors,
-                'message' => 'Ошибка при отправке',
-                'submessage' => 'попробуйте отправить заявку заново'
-            ];
-
+        public function sendMail():bool {
             if (empty($this->subject)) {
-                $this->errors[] = 'Не установлена тема письма!';
+                $this->pushError('Не установлена тема письма!');
             }
-
+            
             if (empty($this->fromEmail)) {
-                $this->errors[] = 'Не назначен отправитель!';
+                $this->pushError('Не назначен отправитель!');
             }
-
+            
             if (empty($this->toEmail)) {
-                $this->errors[] = 'Не назначен получатель!';
+                $this->pushError('Не назначен получатель!');
             }
-
+            
             if (!function_exists('mail')) {
-                $this->errors = 'Функция mail() отключена на сервере';
+                $this->pushError('Функция mail() отключена на сервере!');
             }
-
-            if (count($this->errors) > 0) {
-                $result['errors'] = $this->errors;
-
-                exit(json_encode($result));
+            
+            if (count($this->getErrors()) > 0) {
+                return false;
             }
-
+            
             $this->setHeaders();
-
-            if (mail($this->toEmail, $this->subject, $this->body, $this->headers)) {
-                $result['status'] = 'success';
-                $result['message'] = 'Ваша заявка успешно отправлена';
-                $result['submessage'] = 'менеджер свяжется с Вами в ближайшее время';
-
-                exit(json_encode($result));
-            }
-
-            return json_encode($result);
+            
+            return mail($this->toEmail, $this->subject, $this->body, $this->headers);
         }
     }
 ?>

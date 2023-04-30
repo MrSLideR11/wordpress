@@ -8,3 +8,5 @@ robots.txt
 wp-config.php
 .htaccess
 node_modules/
+
+orders_log.txt

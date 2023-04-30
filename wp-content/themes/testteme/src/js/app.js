@@ -16,7 +16,7 @@ $(function(){
     });
 
     $(".btn_close").on("click", function(){
-        $(".result, .modal").removeClass("active");
+        $(".result").removeClass("active");
     });
 });
 
@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            console.log(form);
+            let subjectText = document.querySelector('.modal').querySelector('.form_title').innerText;
+
             let formData = new FormData(form);
+            formData.append('subject', subjectText);
 
             fetch('./wp-content/themes/testteme/handler_mail.php', {
                 method: 'POST',
@@ -35,18 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then((response) => response.json())
             .then((result) => {
+                document.querySelector('.modal').classList.remove('active');
                 document.querySelector('.result').classList.add('active');
                 document.querySelector('.result').querySelector('h2').innerText = result.message;
                 document.querySelector('.result').querySelector('p').innerText = result.submessage;
                 if(result.status == 'error'){
                     document.querySelector('.result').querySelector('.btn').innerText = 'Повторить';
+                }else{
+                    document.querySelector('.result').querySelector('.btn').innerText = 'На главную';
+                    form.reset();
+                    form.querySelector('.btn_fos').classList.add('btn_fos--ok');
+                    form.querySelector('.btn_fos').innerText = 'Отправлено';
+                    form.querySelector('.btn_fos').setAttribute('disabled', true);
                 }
             });
-
-            form.reset();
-            form.querySelector('.btn_fos').classList.add('btn_fos--ok');
-            form.querySelector('.btn_fos').innerText = 'Отправлено';
-            form.querySelector('.btn_fos').setAttribute('disabled', true);
         });
     });
 });

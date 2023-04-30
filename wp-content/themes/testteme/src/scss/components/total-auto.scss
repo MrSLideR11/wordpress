@@ -1,0 +1,87 @@
+.total-auto{
+    margin-top: 8rem;
+    &_title{
+        h2{
+            @include GothamPro_400;
+            font-size: 3rem;
+            line-height: 4rem;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            color: $total-auto-title-color;
+        }
+    }
+    &_items{
+        margin-top: 6rem;
+        display: grid;
+        grid-auto-flow: row;
+        gap: 2.5rem;
+        &--3{
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &--4{
+            grid-template-columns: repeat(4, 1fr);
+        }
+        &--5{
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+    &_item{
+        padding: 3.5rem 2.5rem 3rem;
+        box-sizing: border-box;
+        background: $total-auto-item-bg;
+        border: .2rem solid $total-auto-item-border;
+        border-radius: 2rem;
+        text-align: center;
+        &__title{
+            h3{
+                a{
+                    @include Montserrat_700;
+                    font-size: 1.6rem;
+                    line-height: 2rem;
+                    display: flex;
+                    align-items: center;
+                    color: $total-auto-item-title-color;
+                }
+            }
+        }
+        &__fields{
+            margin-top: 2.5rem;
+            @include Montserrat_700;
+            font-size: 1rem;
+            line-height: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            text-transform: uppercase;
+            color: $total-auto-item-fields-color;
+            &--availability, &--term{
+                display: flex;
+                align-items: center;
+                img{
+                    margin-right: 2rem;
+                }
+            }
+        }
+        &__img{
+            margin-top: 3rem;
+        }
+        &__excerpt{
+            margin-top: 1rem;
+            @include Montserrat_500;
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+            display: flex;
+            align-items: center;
+            text-align: justify;
+            color: $total-auto-item-excerpt-color;
+        }
+        &__btns{
+            margin-top: 2.5rem;
+            display: grid;
+            grid-auto-flow: row;
+            gap: 1rem;
+        }
+    }
+}

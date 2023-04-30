@@ -1,0 +1,19 @@
+.logo{
+    h1, span{
+        @include Italiana;
+        font-size: 5rem;
+        line-height: 6rem;
+    }
+    &_color{
+        &--white{
+            h1, span{
+                color: $head-logo-color-w;
+            }
+        }
+        &--black{
+            h1, span{
+                color: $head-logo-color-b;
+            }
+        }
+    }
+}

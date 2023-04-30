@@ -1,0 +1,15 @@
+.tagline{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 76rem;
+    height: 12rem;
+    margin: 0 auto;
+    p{
+        @include Montserrat_400;
+        font-size: 2rem;
+        line-height: 91.97%;
+        color: #000000;
+    }
+}

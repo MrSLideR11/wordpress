@@ -1,0 +1,509 @@
+@import url(https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@400;500;600;700&display=swap);
+@font-face {
+  font-family: "GothamPro";
+  src: url(/fonts/GothamPro.eot?6323f9d86f4186873754399e704d7bdc);
+  src: local("GothamPro"), url(/fonts/GothamPro.eot?6323f9d86f4186873754399e704d7bdc?#iefix) format("embedded-opentype"), url(/fonts/GothamPro.woff?e0cf8ca40728224ce13d7f17cd4bca24) format("woff"), url(/fonts/GothamPro.ttf?4f71921a0823129cd8baa5672e423f46) format("truetype");
+}
+@font-face {
+  font-family: "GothamPro-Black";
+  src: url(/fonts/GothamPro-Black.eot?bbd1bedc4ccf23fbf5ca0c884d937995);
+  src: local("GothamPro-Black"), url(/fonts/GothamPro-Black.eot?bbd1bedc4ccf23fbf5ca0c884d937995?#iefix) format("embedded-opentype"), url(/fonts/GothamPro-Black.woff?3dc61cc8c4ff3f83bb40017f5f11aeaa) format("woff"), url(/fonts/GothamPro-Black.ttf?8c2f478dfa880e2de0a188240df31725) format("truetype");
+}
+html {
+  font-size: 0.52vw;
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+@media only screen and (max-width: 1280px) {
+  html {
+    font-size: 0.62vw;
+  }
+}
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 2.6vw;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  list-style: none;
+  background: none;
+}
+
+#app {
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 162rem;
+  margin: 0 auto;
+  flex: 1 0 162rem;
+}
+@media only screen and (max-width: 1280px) {
+  .container {
+    width: calc(100% - 30rem);
+    max-width: calc(100% - 30rem);
+  }
+}
+@media only screen and (max-width: 768px) {
+  .container {
+    width: calc(100% - 3rem);
+    max-width: calc(100% - 3rem);
+  }
+}
+
+.btn {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  width: auto;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+}
+.btn_1 {
+  color: #FFFFFF;
+  background: #EC2830;
+  border: 0.1rem solid #FFFFFF;
+}
+.btn_1:hover {
+  color: #EC2830;
+  background: #FFFFFF;
+  border-color: #EC2830;
+}
+.btn_2 {
+  color: #000000;
+  background: #FFFFFF;
+  border: 0.1rem solid #000000;
+}
+.btn_2:hover {
+  color: #FFFFFF;
+  background: #EC2830;
+  border-color: #EC2830;
+}
+.btn_fos {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  padding: 1.5rem 3.5rem;
+  border-radius: 2.5rem;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: #FFFFFF;
+  background: #EC2830;
+  border: 0.1rem solid #EC2830;
+}
+.btn_fos:hover {
+  color: #EC2830;
+  background: #FFFFFF;
+  border-color: #EC2830;
+}
+.btn_fos--ok {
+  color: #FFFFFF;
+  background: #0FB551;
+  border-color: #0FB551;
+}
+
+.single-page {
+  margin: 20rem 0rem 5rem;
+}
+.single-page h1 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 4rem;
+  line-height: 1.5;
+  margin-bottom: 5rem;
+}
+.single-page h2 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 3.5rem 0rem 2rem;
+}
+.single-page p {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 10rem;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+header .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .head .head-menu > ul {
+  display: grid;
+  gap: 5.5rem;
+  grid-auto-flow: column;
+  grid-row: 1fr;
+}
+header .head .head-menu > ul li a {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: #FFFFFF;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 20rem;
+}
+
+.logo h1, .logo span {
+  font-family: "Italiana", serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 5rem;
+  line-height: 6rem;
+}
+.logo_color--white h1, .logo_color--white span {
+  color: #FFFFFF;
+}
+.logo_color--black h1, .logo_color--black span {
+  color: #000000;
+}
+
+.fos {
+  display: grid;
+  gap: 3.5rem;
+}
+.fos_horizontal {
+  grid-auto-flow: column;
+}
+.fos_vertikal {
+  grid-auto-flow: row;
+}
+.fos input {
+  font-family: "GothamPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  border-radius: 7rem;
+  padding: 2rem 3rem;
+}
+.fos input::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.8);
+}
+.fos input::placeholder {
+  color: rgba(0, 0, 0, 0.8);
+}
+.fos_signature {
+  font-family: "GothamPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.4rem;
+  text-align: center;
+  color: #777777;
+  width: 90%;
+  margin: 6.5rem auto 0rem;
+}
+.fos_signature a {
+  color: #777777;
+  text-decoration: underline;
+}
+
+#map {
+  position: relative;
+  width: 100%;
+  height: 60rem;
+  overflow: hidden;
+  margin-top: -11rem;
+}
+
+.tagline {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 76rem;
+  height: 12rem;
+  margin: 0 auto;
+}
+.tagline p {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 91.97%;
+  color: #000000;
+}
+
+.banner {
+  height: 80rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.banner_bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+.banner_block {
+  width: 60rem;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  gap: 12.5rem;
+}
+.banner_title h2 {
+  font-family: "GothamPro-Black", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  color: #FFFFFF;
+  font-size: 5rem;
+  line-height: 6rem;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+.banner_title p {
+  font-family: "GothamPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #FFFFFF;
+  font-size: 3rem;
+  line-height: 4rem;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+.banner_fos input {
+  background: #FFFFFF;
+  text-align: center;
+}
+
+.total-auto {
+  margin-top: 8rem;
+}
+.total-auto_title h2 {
+  font-family: "GothamPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 4rem;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+.total-auto_items {
+  margin-top: 6rem;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2.5rem;
+}
+.total-auto_items--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.total-auto_items--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.total-auto_items--5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+.total-auto_item {
+  padding: 3.5rem 2.5rem 3rem;
+  box-sizing: border-box;
+  background: #FDFDFD;
+  border: 0.2rem solid #F4F4F4;
+  border-radius: 2rem;
+  text-align: center;
+}
+.total-auto_item__title h3 a {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+.total-auto_item__fields {
+  margin-top: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+}
+.total-auto_item__fields--availability, .total-auto_item__fields--term {
+  display: flex;
+  align-items: center;
+}
+.total-auto_item__fields--availability img, .total-auto_item__fields--term img {
+  margin-right: 2rem;
+}
+.total-auto_item__img {
+  margin-top: 3rem;
+}
+.total-auto_item__excerpt {
+  margin-top: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  color: #000000;
+}
+.total-auto_item__btns {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 1rem;
+}
+
+#block-fos {
+  height: 50rem;
+  margin-top: 12.5rem;
+}
+#block-fos .block-fos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(0deg, rgba(128, 128, 128, 0) 0%, rgba(128, 128, 128, 0.2) 100%);
+  border-radius: 5rem 5rem 0rem 0rem;
+  padding: 5rem;
+  box-sizing: border-box;
+}
+#block-fos .block-fos_title h2 {
+  font-family: "GothamPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 4.8rem;
+  line-height: 4.6rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+}
+#block-fos .block-fos_description {
+  font-family: "GothamPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #000000;
+  margin-top: 2rem;
+}
+#block-fos .block-fos_fos {
+  margin-top: 6.5rem;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  top: 0;
+}
+.modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal .form {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 2rem;
+  width: 100%;
+  max-width: 56rem;
+  padding: 5rem 7rem;
+  position: relative;
+}
+.modal .form_title {
+  font-family: "GothamPro-Black", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+}
+.modal .form_description {
+  font-family: "GothamPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  margin-top: 2rem;
+}
+.modal .form_close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+.modal .form_close:hover {
+  cursor: pointer;
+}
+.modal .form .fos {
+  margin-top: 5rem;
+}
+.modal .form .fos_signature {
+  margin-top: 3.6rem;
+  text-align: justify;
+}

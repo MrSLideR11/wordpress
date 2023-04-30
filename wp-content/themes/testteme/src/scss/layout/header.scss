@@ -1,0 +1,31 @@
+header{
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+    background: $head-bg;
+    z-index: 1;
+    .head{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .head-menu{
+            & > ul{
+                display: grid;
+                gap: 5.5rem;
+                grid-auto-flow: column;
+                grid-row: 1fr;
+                li{
+                    a{
+                        @include Montserrat_400;
+                        font-size: 1.6rem;
+                        line-height: 2rem;
+                        color: $head-menu-color;
+                    }
+                }
+            }
+        }
+    }
+}

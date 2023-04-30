@@ -1,0 +1,62 @@
+@font-face {
+	font-family: 'GothamPro';
+	src: url('../../fonts/GothamPro.eot');
+	src: local('GothamPro'),
+		url('../../fonts/GothamPro.eot?#iefix') format('embedded-opentype'),
+		url('../../fonts/GothamPro.woff') format('woff'),
+		url('../../fonts/GothamPro.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'GothamPro-Black';
+	src: url('../../fonts/GothamPro-Black.eot');
+	src: local('GothamPro-Black'),
+		url('../../fonts/GothamPro-Black.eot?#iefix') format('embedded-opentype'),
+		url('../../fonts/GothamPro-Black.woff') format('woff'),
+		url('../../fonts/GothamPro-Black.ttf') format('truetype');
+}
+
+@mixin GothamPro_400{
+    font-family: 'GothamPro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@mixin GothamPro_700{
+    font-family: 'GothamPro-Black', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Montserrat:wght@400;500;600;700&display=swap');
+
+@mixin Italiana{
+    font-family: 'Italiana', serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+@mixin Montserrat{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+}
+
+@mixin Montserrat_400{
+    @include Montserrat;
+    font-weight: 400;
+}
+
+@mixin Montserrat_500{
+    @include Montserrat;
+    font-weight: 500;
+}
+
+@mixin Montserrat_600{
+    @include Montserrat;
+    font-weight: 600;
+}
+
+@mixin Montserrat_700{
+    @include Montserrat;
+    font-weight: 700;
+}

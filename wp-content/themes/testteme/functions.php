@@ -5,13 +5,15 @@ add_theme_support('title-tag');
 add_theme_support('post-thumbnails');
 add_theme_support('custom-logo', array('height' => 250, 'width' => 250, 'flex-width' => true, 'flex-height' => true));
 
+add_image_size('total-auto', 275, 125, true);
+
 add_filter('show_admin_bar', '__return_false'); //Hide adminbar
 
 add_action('wp_enqueue_scripts', 'include_files');
 
 function include_files() {
-	wp_enqueue_style( 'styles-theme', get_template_directory_uri() . '/css/app.css' );
-	wp_enqueue_script( 'scripts-theme', get_stylesheet_directory_uri() . '/js/app.js', array(), null, true );
+	wp_enqueue_style( 'styles-theme', get_template_directory_uri() . '/dist/css/app.css' );
+	wp_enqueue_script( 'scripts-theme', get_stylesheet_directory_uri() . '/dist/js/app.js', array(), null, true );
     wp_localize_script('scripts-theme', 'wp_variables', array(
 		'ajax' => admin_url('admin-ajax.php'),
 		'site_url' => site_url(),
@@ -41,3 +43,4 @@ function pre($arr){
 register_nav_menu( 'heaedr', 'header' );
 register_nav_menu( 'footer', 'footer' );
 require_once "inc/customizer.php";
+require_once "inc/post-types.php";

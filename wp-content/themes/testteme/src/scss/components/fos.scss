@@ -1,0 +1,38 @@
+.fos{
+    display: grid;
+    gap: 3.5rem;
+    &_horizontal{
+        grid-auto-flow: column;
+    }
+    &_vertikal{
+        grid-auto-flow: row;
+    }
+    input{
+        @include GothamPro_400;
+        font-size: 1.6rem;
+        line-height: 1.5rem;
+        display: flex;
+        align-items: center;
+        color: $fos-input-color;
+        background: $fos-input-bg;
+        border: .1rem solid $fos-input-border;
+        border-radius: 7rem;
+        padding: 2rem 3rem;
+        &::placeholder{
+            color: $fos-input-placeholder;
+        }
+    }
+    &_signature{
+        @include GothamPro_400;
+        font-size: 1.2rem;
+        line-height: 1.4rem;
+        text-align: center;
+        color: $fos-signature-color;
+        width: 90%;
+        margin: 6.5rem auto 0rem;
+        a{
+            color: $fos-signature-color;
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+.result{
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    background: $result-bg;
+    z-index: 1;
+    top: 0;
+    &.active{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        background: $result-form-bg;
+        border-radius: 2rem;
+        width: 100%;
+        max-width: 94rem;
+        padding: 5rem 7rem;
+        position: relative;
+        &_title{
+            @include GothamPro_700;
+            font-size: 3rem;
+            line-height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $result-form-title-color;
+            text-transform: uppercase;
+        }
+        &_description{
+            @include GothamPro_400;
+            font-size: 2rem;
+            line-height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: $result-form-description-color;
+            margin-top: 2rem;
+        }
+        span{
+            margin-top: 6rem;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}

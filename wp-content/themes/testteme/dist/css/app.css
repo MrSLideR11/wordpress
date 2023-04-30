@@ -507,3 +507,58 @@ footer {
   margin-top: 3.6rem;
   text-align: justify;
 }
+
+.result {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  top: 0;
+}
+.result.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.result .form {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border-radius: 2rem;
+  width: 100%;
+  max-width: 94rem;
+  padding: 5rem 7rem;
+  position: relative;
+}
+.result .form_title {
+  font-family: "GothamPro-Black", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  text-transform: uppercase;
+}
+.result .form_description {
+  font-family: "GothamPro", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  margin-top: 2rem;
+}
+.result .form span {
+  margin-top: 6rem;
+}
+.result .form span:hover {
+  cursor: pointer;
+}

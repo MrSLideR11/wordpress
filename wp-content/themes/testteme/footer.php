@@ -13,8 +13,11 @@
                 </div>
             </footer>
         </div>
-        <?php wp_footer(); ?>
-        <?php get_template_part("inc/yandex", "map", null); ?>
-        <?php get_template_part("inc/modal", null, null); ?>
+        <?php 
+            get_template_part("inc/modal", null, null);
+            get_template_part("inc/result", null, null);
+            wp_footer();
+            get_template_part("inc/yandex", "map", null);
+        ?>
     </body>
 </html>

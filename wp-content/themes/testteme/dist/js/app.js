@@ -16,7 +16,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 jQuery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
-  new (inputmask__WEBPACK_IMPORTED_MODULE_1___default())("+7 (999) 999-99-99").mask(jQuery__WEBPACK_IMPORTED_MODULE_0___default()("[type=tel]"));
+  new (inputmask__WEBPACK_IMPORTED_MODULE_1___default())("+7 (999) 999-99-99").mask(jQuery__WEBPACK_IMPORTED_MODULE_0___default()("[type=\"tel\"]"));
   jQuery__WEBPACK_IMPORTED_MODULE_0___default()(".btn_modal").on("click", function (e) {
     e.preventDefault();
     jQuery__WEBPACK_IMPORTED_MODULE_0___default()(".modal").addClass("active");
@@ -24,6 +24,36 @@ jQuery__WEBPACK_IMPORTED_MODULE_0___default()(function () {
   });
   jQuery__WEBPACK_IMPORTED_MODULE_0___default()(".form_close").on("click", function () {
     jQuery__WEBPACK_IMPORTED_MODULE_0___default()(".modal").removeClass("active");
+  });
+  jQuery__WEBPACK_IMPORTED_MODULE_0___default()(".btn_close").on("click", function () {
+    jQuery__WEBPACK_IMPORTED_MODULE_0___default()(".result, .modal").removeClass("active");
+  });
+});
+document.addEventListener('DOMContentLoaded', function () {
+  var orderForms = document.querySelectorAll('.fos');
+  orderForms.forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      console.log(form);
+      var formData = new FormData(form);
+      fetch('./wp-content/themes/testteme/handler_mail.php', {
+        method: 'POST',
+        body: formData
+      }).then(function (response) {
+        return response.json();
+      }).then(function (result) {
+        document.querySelector('.result').classList.add('active');
+        document.querySelector('.result').querySelector('h2').innerText = result.message;
+        document.querySelector('.result').querySelector('p').innerText = result.submessage;
+        if (result.status == 'error') {
+          document.querySelector('.result').querySelector('.btn').innerText = 'Повторить';
+        }
+      });
+      form.reset();
+      form.querySelector('.btn_fos').classList.add('btn_fos--ok');
+      form.querySelector('.btn_fos').innerText = 'Отправлено';
+      form.querySelector('.btn_fos').setAttribute('disabled', true);
+    });
   });
 });
 

@@ -1,4 +1,4 @@
-<form action="/" method="post" class="fos fos_<?php echo $args['orientation']; ?>">
+<form action="/" method="post" id="callback" class="fos fos_<?php echo $args['orientation']; ?>">
     <?php foreach($args['inputs'] as $item){ ?>
         <input 
             type="<?php echo $item['type']; ?>" 
